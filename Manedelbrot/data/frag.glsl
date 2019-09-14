@@ -37,7 +37,14 @@ out vec4 outputColor;
 
 */
 
-const float maxiter = 400;
+const float maxiter = 800;
+
+const float pi = 3.14159265;
+const float tau = pi*2.;
+
+vec3 randColor(float t) {
+	return sin(vec3(t*2., t, t*3.));
+}
 
 void main() {
 
@@ -54,6 +61,6 @@ void main() {
 		i++;
 	}
 
-	vec3 col = vec3(i/maxiter);
-	outputColor = vec4(col, 1.);
+	float f = i/maxiter;
+	outputColor = vec4(randColor(f * tau), 1.);
 }
